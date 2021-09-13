@@ -1,14 +1,14 @@
 import React from "react";
 import { minutesToDuration, secondsToDuration } from "../utils/duration";
 
-function TimerDisplayHandler({ focusDuration, breakDuration, session}) {
-    return(
-      session &&
+function TimerDisplayHandler({ focusDuration, breakDuration, session }) {
+  return (
+    session && (
       <div>
         <div className="row mb-2">
           <div className="col">
             <h2 data-testid="session-title">
-              {session?.label} for {" "}
+              {session?.label} for{" "}
               {session.label === "Focusing"
                 ? minutesToDuration(focusDuration)
                 : minutesToDuration(breakDuration)}{" "}
@@ -28,25 +28,28 @@ function TimerDisplayHandler({ focusDuration, breakDuration, session}) {
                 aria-valuemin="0"
                 aria-valuemax="100"
                 aria-valuenow={
-                  100 - (100 * session.timeRemaining) / 
-                  (session.label === "Focusing"
-                  ? focusDuration * 60
-                  : breakDuration * 60)
+                  100 -
+                  (100 * session.timeRemaining) /
+                    (session.label === "Focusing"
+                      ? focusDuration * 60
+                      : breakDuration * 60)
                 }
                 style={{
                   width: `${
-                    100 - (100 * session.timeRemaining) / 
-                    (session.label === "Focusing"
-                    ? focusDuration * 60
-                    : breakDuration * 60)
-                  }%` 
+                    100 -
+                    (100 * session.timeRemaining) /
+                      (session.label === "Focusing"
+                        ? focusDuration * 60
+                        : breakDuration * 60)
+                  }%`,
                 }}
               />
             </div>
           </div>
         </div>
       </div>
-    );
-  }
+    )
+  );
+}
 
-export default TimerDisplayHandler
+export default TimerDisplayHandler;

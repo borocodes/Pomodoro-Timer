@@ -56,12 +56,11 @@ function Pomodoro() {
   const [breakDuration, setBreakDuration] = useState(5);
   const [session, setSession] = useState(null);
 
-  // ToDo: Allow the user to adjust the focus and break duration.
-
+  
+  //create vars to handle min and max of each plus/minus the user can set for focus and breaks. must be max/min according to instructions 
   // ***you will need to use Math.max() and Math.min()
-  //create vars to handle min and max of each plus/minus the user can set for timer and breaks. must be max/min according to instructions
+ 
 
-  // focus time increase
   const focusDecrease = () => {
     setFocusDuration(Math.max(5, focusDuration - 5));
   };
@@ -140,6 +139,7 @@ function Pomodoro() {
       <TimerControls
         isTimerRunning={isTimerRunning}
         playPause={playPause}
+        session={!session}
         stop={stop}
       />
       <TimerDisplayHandler
